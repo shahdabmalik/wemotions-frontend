@@ -10,11 +10,22 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
+  <!-- darkmode setup -->
+  <script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+      window.localStorage.setItem('theme', "dark")
+    } else {
+      document.documentElement.classList.remove('dark')
+      window.localStorage.setItem('theme', "light")
+    }
+  </script>
+
   <title>Wemotions</title>
 </head>
 
 <body>
-  <div id="root" class="font-sans" ></div>
+  <div id="root" class="font-sans"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
