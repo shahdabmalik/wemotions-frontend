@@ -54,10 +54,8 @@ const useGoogleLogin = () => {
                 client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
                 callback: handleCallback
             })
-            setTimeout(() => {
-                // eslint-disable-next-line no-undef
-                google.accounts.id.prompt()
-            }, 5000)
+            // eslint-disable-next-line no-undef
+            google.accounts.id.prompt()
         }
     }
 }
