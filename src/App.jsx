@@ -1,15 +1,17 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Home from "./pages/home/Home"
-import Register from "./pages/register/Register"
-import { Toaster } from "react-hot-toast"
 import axios from "axios"
-import Dashboard from "./pages/dashboard/Dashboard"
-import Login from "./pages/login/Login"
+import useGoogleLogin from "./customHook/useGoogleLogin"
+import { Toaster } from "react-hot-toast"
+// import Dashboard from "./pages/dashboard/Dashboard"
+// import Login from "./pages/login/Login"
 
 axios.defaults.withCredentials = true
 axios.defaults.baseURL = import.meta.env.VITE_API_URL
 
 function App() {
+
+  useGoogleLogin()
 
   return (
     <BrowserRouter>
@@ -20,9 +22,6 @@ function App() {
       />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   )
