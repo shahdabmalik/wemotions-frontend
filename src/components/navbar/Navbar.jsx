@@ -38,14 +38,14 @@ const Navbar = ({ children }) => {
 
     return (
         <>
-            <div className={"fixed z-50 top-0 left-0 w-full border-b border-slate-300 dark:border-slate-800  transition-transform md:transition-colors duration-300 ease-linear backdrop-blur-lg bg-slate-100 dark:bg-slate-950 bg-opacity-75 dark:bg-opacity-75 " + (show ? " translate-y-0 " : " -translate-y-32 ") + (shadow ? " shadow-md " : " ")} >
-                <nav className="max max-w-screen-2xl w-full mx-auto px-4 md:px-10 h-16 flex justify-between items-center" >
-                    <Link to={"/"} className="text-2xl font-inter font-extrabold text-slate-800 dark:text-slate-100 transition-all duration-300 ease-linear" >We<span className="text-blue-700 dark:text-blue-600">Motions</span></Link>
+            <div className={"fixed z-50 top-0 left-0 w-full border-b border-slate-300 dark:border-slate-800  transition-transform md:transition-colors duration-300 ease-linear backdrop-blur-lg bg-white dark:bg-slate-950 bg-opacity-75 dark:bg-opacity-75 " + (show ? " translate-y-0 " : " -translate-y-32 ") + (shadow ? " shadow-md " : " ")} >
+                <nav className="max max-w-screen-xl w-full mx-auto px-4 md:px-10 h-16 flex justify-between items-center" >
+                    <Link to={"/"} className="text-2xl font-inter font-extrabold text-slate-800 dark:text-slate-100 transition-colors ease-linear" >We<span className="text-blue-700 dark:text-blue-500">Motions</span></Link>
                     <div className="flex items-center gap-4 font-inter">
                         <div className="hidden md:flex gap-4 items-center" >{children}</div>
                         <div className="flex gap-5 items-center" >
                             <DarkModeBtn />
-                            {!isLoggedIn ? <AuthDialog /> : <img src={user?.profile?.link} alt="profile" className="w-9 border-2 border-blue-600 rounded-full" />}
+                            {!isLoggedIn ? <AuthDialog /> : <img src={user?.profile?.link} alt="profile" className="w-9 h-9 border-2 border-blue-600 rounded-full" />}
                             {children !== undefined || children?.length > 0 && <RiMenuFill size={28} onClick={handleNavMenu} className="md:hidden text-black dark:text-slate-300" />}
                         </div>
                     </div>

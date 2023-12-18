@@ -1,5 +1,7 @@
 import axios from "axios"
 import toast from "react-hot-toast";
+import store from "../../store"
+import { SET_LOGIN } from "./authSlice";
 
 const token = window.localStorage.getItem("token")
 
@@ -25,6 +27,7 @@ export const loginStatus = async () => {
         return response.data
     } catch (error) {
         console.log(error);
+        store.dispatch(SET_LOGIN(false))
     }
 }
 
