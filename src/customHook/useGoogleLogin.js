@@ -45,10 +45,11 @@ const useGoogleLogin = () => {
     // check login function
     async function checkLogin() {
         const data = await loginStatus()
-        if (data) {
+        if (data.user) {
             dispatch(SET_USER(data.user))
             dispatch(SET_LOGIN(true))
         } else {
+            dispatch(SET_LOGIN(false))
             // eslint-disable-next-line no-undef
             google.accounts.id.initialize({
                 client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
