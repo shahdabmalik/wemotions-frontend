@@ -96,8 +96,8 @@ const Motion = ({ motion }) => {
                 </div>
                 <div className=' text-xs font-semibold dark:text-slate-100' >{formatDate(localMotion?.createdAt)}</div>
             </div>
-            <div onClick={() => { voted ? disposeVote() : vote() }} className={"absolute -top-4 -right-4 w-10 shadow-lg aspect-square border-2 rounded-full bg-white dark:bg-black flex items-center justify-center cursor-pointer border-slate-500 " + (
-                voted ? " bg-green-600 dark:bg-green-500 dark:text-black text-white hover:bg-red-600 dark:hover:bg-red-500 " : " hover:bg-green-300 dark:hover:bg-green-300 dark:hover:text-black  "
+            <div onClick={() => { voted ? disposeVote() : vote() }} className={"absolute -top-4 -right-4 w-10 shadow-lg aspect-square border-2 rounded-full  flex items-center justify-center cursor-pointer border-slate-500 " + (
+                voted ? " bg-green-600 dark:bg-green-500 dark:text-black text-white hover:bg-red-600 dark:hover:bg-red-500 " : " hover:bg-green-300 dark:hover:bg-green-300 dark:hover:text-black bg-white dark:bg-black  "
             )} >{!isLoading ? <BiLike size={24} />
                 : <RotatingLines
                     strokeColor="darkgrey"
