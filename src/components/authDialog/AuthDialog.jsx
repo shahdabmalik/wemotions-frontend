@@ -54,7 +54,7 @@ const AuthDialog = () => {
             document.getElementById('signIn'),
             { theme: 'filled_blue', size: 'fill', shape: 'square' }
         );
-    }, 100);
+    }, 200);
 
     return (
         <>

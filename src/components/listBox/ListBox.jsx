@@ -21,15 +21,15 @@ export default function ListBox({ options, onOptionChange }) {
                     </Listbox.Button>
                     <Transition
                         as={Fragment}
-                        leave="transition ease-in duration-100"
+                        leave="transition-all ease-in duration-100"
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0">
-                        <Listbox.Options className="absolute mt-1 w-full overflow-auto rounded-md bg-white dark:bg-slate-900 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
+                        <Listbox.Options className="absolute mt-1 w-full z-50 overflow-auto rounded-md bg-white dark:bg-slate-900 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
                             {options.map((person, personIdx) => (
                                 <Listbox.Option
                                     key={personIdx}
                                     className={({ active }) => `relative cursor-default select-none p-1 px-3 ${active ? 'bg-blue-500 text-white' : 'text-slate-800 dark:text-slate-200'}`}
-                                    value={person}>{({ selected }) => (<span className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}>{person.name}</span>)}
+                                    value={person}>{({ selected }) => (<span className={`block truncate ${selected ? 'font-bold' : 'font-semibold'}`}>{person.name}</span>)}
                                 </Listbox.Option>
                             ))}
                         </Listbox.Options>
