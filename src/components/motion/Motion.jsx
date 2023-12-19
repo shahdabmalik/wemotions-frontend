@@ -14,7 +14,7 @@ const Motion = ({ motion }) => {
     const { user, isLoggedIn } = useSelector(state => state.auth)
     const [localMotion, setLocalMotion] = useState(motion)
     const [showExplanation, setShowExplanation] = useState(false)
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
     const [voted, setVoted] = useState(localMotion?.votes?.voters.includes(user?._id))
     const token = window.localStorage.getItem("token")
 
@@ -96,11 +96,11 @@ const Motion = ({ motion }) => {
                 </div>
                 <div className=' text-xs font-semibold dark:text-slate-100' >{formatDate(localMotion?.createdAt)}</div>
             </div>
-            <button disabled={isLoading} type="button" onClick={() => { voted ? disposeVote() : vote() }} className={"absolute -top-4 -right-4 w-10 shadow-lg aspect-square border-2 rounded-full  flex items-center justify-center cursor-pointer border-slate-500 " + (
-                voted ? " bg-green-600 dark:bg-green-500 dark:text-black text-white hover:bg-red-600 dark:hover:bg-red-500 " : " hover:bg-green-300 dark:hover:bg-green-300 dark:hover:text-black bg-white dark:bg-black  "
+            <button disabled={isLoading} type="button" onClick={() => { voted ? disposeVote() : vote() }} className={"absolute -top-4 -right-4 w-10 shadow-lg aspect-square border-2 rounded-full  flex items-center justify-center cursor-pointer border-slate-500 " + (isLoading && " bg-slate-200 dark:bg-slate-800 ") + (
+                voted ? " bg-green-600 dark:bg-green-500 dark:text-black text-white " : " hover:bg-green-300 dark:hover:bg-green-300 dark:hover:text-black bg-white dark:bg-black  "
             )} >{!isLoading ? <BiLike size={24} />
                 : <RotatingLines
-                    strokeColor="black"
+                    strokeColor="grey"
                     strokeWidth="4"
                     animationDuration="0.75"
                     width="24"
