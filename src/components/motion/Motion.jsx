@@ -14,7 +14,7 @@ const Motion = ({ motion }) => {
     const { user, isLoggedIn } = useSelector(state => state.auth)
     const [localMotion, setLocalMotion] = useState(motion)
     const [showExplanation, setShowExplanation] = useState(false)
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
     const [voted, setVoted] = useState(localMotion?.votes?.voters.includes(user?._id))
     const token = window.localStorage.getItem("token")
 
