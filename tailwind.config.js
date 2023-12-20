@@ -11,6 +11,9 @@ export default {
       fontFamily: {
         inter: "'Inter', sans-serif",
         sans: "'Open Sans', sans-serif"
+      },
+      screens:{
+        'xs' : '450px'
       }
     },
   },
