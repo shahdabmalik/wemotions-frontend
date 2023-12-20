@@ -75,7 +75,9 @@ const Entity = () => {
         setSelectedOption(value)
     }
     const fetchMoreData = () => {
-        setPage(prev => prev + 1);
+        if (motions || motions?.length > 0) {
+            setPage(prev => prev + 1);
+        }
     };
 
     return (
@@ -97,7 +99,7 @@ const Entity = () => {
                         <h3 className="text-3xl text-slate-800 dark:text-slate-200 font-semibold " >Motions</h3>
                         <ListBox options={options} onOptionChange={onOptionChange} />
                     </div>
-                    <div>
+                    <div className="mt-5" >
                         <InfiniteScroll
                             dataLength={motions.length}
                             next={fetchMoreData}
