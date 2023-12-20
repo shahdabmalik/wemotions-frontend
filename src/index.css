@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-html {
-    scroll-behavior: smooth;
-}
-
 ::-webkit-scrollbar {
     width: 5px;
     background: #e2e8f0;

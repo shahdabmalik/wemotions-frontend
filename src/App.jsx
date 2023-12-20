@@ -3,6 +3,7 @@ import Home from "./pages/home/Home"
 import axios from "axios"
 import useGoogleLogin from "./customHook/useGoogleLogin"
 import { Toaster } from "react-hot-toast"
+import Entity from "./pages/entity/Entity"
 // import Dashboard from "./pages/dashboard/Dashboard"
 // import Login from "./pages/login/Login"
 
@@ -22,6 +23,7 @@ function App() {
       />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/:slug" element={<Entity />} />
       </Routes>
     </BrowserRouter>
   )
