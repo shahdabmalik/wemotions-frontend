@@ -20,7 +20,7 @@ const Entity = () => {
     const [motions, setMotions] = useState([])
     const [hasMore, setHasMore] = useState(true)
     const [entityLoading, setEntityLoading] = useState(false)
-    // const [motionLoading, setMotionLoading] = useState(false)
+    const [motionLoading, setMotionLoading] = useState(false)
     const [selectedOption, setSelectedOption] = useState(options[0].name)
     const [page, setPage] = useState(1)
 
@@ -50,8 +50,10 @@ const Entity = () => {
         async function getMotions() {
             try {
                 if (entity?._id) {
+                    setMotionLoading(true)
                     const response = await axios.get(`/idea/entityidea?entity=${entity?._id}&sort=${selectedOption}&page=${page}`);
                     setMotions(prev => [...prev, ...response.data.motions]);
+                    setMotionLoading(false)
                     if (response.data.motions.length === 0 || response.data.motions.length < 20) {
                         setHasMore(false);
                     }
@@ -59,6 +61,7 @@ const Entity = () => {
                     return
                 }
             } catch (error) {
+                setMotionLoading(false)
                 console.error("Error fetching data: ", error);
                 setHasMore(false);
             }
@@ -110,9 +113,22 @@ const Entity = () => {
                             endMessage={<span></span>}
                         >
                             <div className="flex flex-col gap-8 mt-8 pr-2"  >
-                                {motions.map(motion => (
+                                {!motionLoading ? motions.map(motion => (
                                     <Motion key={motion?._id} motion={motion} />
-                                ))}
+                                )) : (
+                                    <>
+                                        <MotionSkeleton />
+                                        <MotionSkeleton />
+                                        <MotionSkeleton />
+                                        <MotionSkeleton />
+                                        <MotionSkeleton />
+                                        <MotionSkeleton />
+                                        <MotionSkeleton />
+                                        <MotionSkeleton />
+                                        <MotionSkeleton />
+                                        <MotionSkeleton />
+                                    </>
+                                )}
                             </div>
                         </InfiniteScroll>
                     </div>
@@ -156,6 +172,8 @@ const EntitySkeleton = () => {
             <div className="w-full" >
                 <div className="h-10 w-80 dark:bg-slate-800 bg-slate-200 rounded-md" ></div>
                 <p className="mt-8 h-4 w-full bg-slate-200 dark:bg-slate-800 rounded-md" ></p>
+                <p className="mt-3 h-4 w-full bg-slate-200 dark:bg-slate-800 rounded-md" ></p>
+                <p className="mt-3 h-4 w-full bg-slate-200 dark:bg-slate-800 rounded-md" ></p>
                 <p className="mt-3 h-4 w-full bg-slate-200 dark:bg-slate-800 rounded-md" ></p>
                 <p className="mt-3 h-4 w-full bg-slate-200 dark:bg-slate-800 rounded-md" ></p>
                 <p className="mt-3 h-4 w-1/2 bg-slate-200 dark:bg-slate-800 rounded-md" ></p>
