@@ -90,7 +90,7 @@ const Motion = ({ motion }) => {
             <p className=" dark:text-slate-100 font-semibold">{localMotion?.idea}</p>
             <p className={" dark:text-slate-100 font-semibold mt-1 text-sm " + (showExplanation ? " block " : " hidden ")} >A.I Explanation : <span className="font-normal text-sm dark:text-slate-300" >{localMotion?.aiExplanation}</span></p>
             <span onClick={() => setShowExplanation(!showExplanation)} className="text-xs text-blue-700 dark:text-blue-500 font-medium cursor-pointer hover:underline underline-offset-2" >{showExplanation ? "Hide A.I Explanation" : "See A.I Explanation"}</span>
-            <div className=" mt-1 xs:mt-2 flex flex-col gap-1 xs:flex-row items-center justify-between text-xs w-full dark:text-slate-100 font-inter" >
+            <div className=" mt-1 xs:mt-2 flex flex-col gap-1.5 xs:flex-row items-center justify-between text-xs w-full dark:text-slate-100 font-inter" >
                 <div className="flex justify-between xs:justify-normal gap-5 items-center w-full xs:w-auto" >
                     <p className={"capitalize flex items-center gap-1 font-medium " + (localMotion?.aiScore <= 25 ? "text-red-500" : localMotion?.aiScore > 25 && localMotion?.aiScrore <= 50 ? "text-orange-500" : localMotion?.aiScore > 50 && localMotion?.aiScore <= 75 ? "text-amber-500 dark:text-amber-300 " : "text-green-600 dark:text-green-400")} >A.I Score: <span className={" "} >{localMotion?.aiScore}</span></p>
                     <p className=" text-green-600 dark:text-green-400 font-medium" >Votes: {localMotion?.votes?.count}</p>
