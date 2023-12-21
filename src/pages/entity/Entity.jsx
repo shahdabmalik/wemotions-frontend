@@ -20,7 +20,6 @@ const Entity = () => {
     const [motions, setMotions] = useState([])
     const [hasMore, setHasMore] = useState(true)
     const [entityLoading, setEntityLoading] = useState(false)
-    const [motionLoading, setMotionLoading] = useState(false)
     const [selectedOption, setSelectedOption] = useState(options[0].name)
     const [page, setPage] = useState(1)
 
@@ -50,10 +49,8 @@ const Entity = () => {
         async function getMotions() {
             try {
                 if (entity?._id) {
-                    setMotionLoading(true)
                     const response = await axios.get(`/idea/entityidea?entity=${entity?._id}&sort=${selectedOption}&page=${page}`);
                     setMotions(prev => [...prev, ...response.data.motions]);
-                    setMotionLoading(false)
                     if (response.data.motions.length === 0 || response.data.motions.length < 20) {
                         setHasMore(false);
                     }
@@ -61,7 +58,6 @@ const Entity = () => {
                     return
                 }
             } catch (error) {
-                setMotionLoading(false)
                 console.error("Error fetching data: ", error);
                 setHasMore(false);
             }
@@ -75,22 +71,22 @@ const Entity = () => {
         setSelectedOption(value)
     }
     const fetchMoreData = () => {
-        if (motions || motions?.length > 0) {
+        if (motions?.length > 0) {
             setPage(prev => prev + 1);
         }
     };
 
     return (
-        <div className={'w-full min-h-screen bg-white dark:bg-slate-950 transition-none md:transition-colors duration-300 ease-linear text-slate-700 dark:text-slate-300 ' + (entityLoading && " overflow-hidden h-screen")} >
+        <div className={'w-full min-h-screen bg-white dark:bg-slate-950 transition-none md:transition-colors duration-300 ease-linear text-slate-700 dark:text-slate-300 '} >
             <Navbar />
             <div className="w-full max-w-screen-xl mx-auto px-4 md:px-10 " >
                 {!entityLoading ? (
-                    <div className="pt-24 flex flex-col md:flex-row gap-8" >
-                        <div className="max-w-full w-full xs:w-80 xs:h-80 shadow-lg aspect-square border bg-slate-100 dark:bg-slate-900 dark:border-slate-800 rounded-md transition-colors" ></div>
-                        <div>
-                            <h1 className="capitalize text-4xl font-bold dark:text-slate-100 text-slate-900" >{entity?.name}</h1>
-                            <p className="mt-3" >{entity?.description}</p>
+                    <div className="pt-24" >
+                        <div className=" flex items-center gap-5">
+                            <div className="max-w-full w-16 h-16 rounded-full shadow-md aspect-square border bg-slate-100 dark:bg-slate-900 dark:border-slate-800 transition-colors" ></div>
+                            <h1 className="capitalize flex-grow text-4xl font-bold dark:text-slate-100 text-slate-900" >{entity?.name}</h1>
                         </div>
+                        <p className="mt-5" >{entity?.description}</p>
                     </div>
                 ) : (<EntitySkeleton />)}
 
@@ -107,30 +103,15 @@ const Entity = () => {
                             loader={
                                 hasMore && <div className="flex flex-col gap-8 mt-8 pr-2"  >
                                     <MotionSkeleton />
-                                    <MotionSkeleton />
-                                    <MotionSkeleton />
                                 </div>
                             }
-                            className="min-h-screen"
-                            endMessage={<span></span>}
+                            className=""
+                            endMessage={<span className="block text-center py-8 text-4xl font-semibold" >That&apos;s all, folks!</span>}
                         >
                             <div className="flex flex-col gap-8 mt-8 pr-2"  >
-                                {!motionLoading ? motions.map(motion => (
+                                {motions.map(motion => (
                                     <Motion key={motion?._id} motion={motion} />
-                                )) : (
-                                    <>
-                                        <MotionSkeleton />
-                                        <MotionSkeleton />
-                                        <MotionSkeleton />
-                                        <MotionSkeleton />
-                                        <MotionSkeleton />
-                                        <MotionSkeleton />
-                                        <MotionSkeleton />
-                                        <MotionSkeleton />
-                                        <MotionSkeleton />
-                                        <MotionSkeleton />
-                                    </>
-                                )}
+                                ))}
                             </div>
                         </InfiniteScroll>
                     </div>
@@ -169,16 +150,16 @@ const MotionSkeleton = () => {
 
 const EntitySkeleton = () => {
     return (
-        <div className="pt-24 flex flex-col md:flex-row gap-8 animate-pulse" >
-            <div className="max-w-full w-full xs:w-80 xs:h-80 shadow-lg aspect-square border bg-slate-100 dark:bg-slate-900 dark:border-slate-800 rounded-md transition-colors" ></div>
+        <div className="pt-24 animate-pulse" >
+            <div className="flex gap-5 items-center" >
+                <div className="max-w-full rounded-full w-16 h-16 shadow-md aspect-square border bg-slate-100 dark:bg-slate-900 dark:border-slate-800 transition-colors" ></div>
+                <div className="h-8 w-40 dark:bg-slate-800 bg-slate-200 rounded-full" ></div>
+            </div>
             <div className="w-full" >
-                <div className="h-10 w-80 dark:bg-slate-800 bg-slate-200 rounded-md" ></div>
-                <p className="mt-8 h-4 w-full bg-slate-200 dark:bg-slate-800 rounded-md" ></p>
-                <p className="mt-3 h-4 w-full bg-slate-200 dark:bg-slate-800 rounded-md" ></p>
-                <p className="mt-3 h-4 w-full bg-slate-200 dark:bg-slate-800 rounded-md" ></p>
-                <p className="mt-3 h-4 w-full bg-slate-200 dark:bg-slate-800 rounded-md" ></p>
-                <p className="mt-3 h-4 w-full bg-slate-200 dark:bg-slate-800 rounded-md" ></p>
-                <p className="mt-3 h-4 w-1/2 bg-slate-200 dark:bg-slate-800 rounded-md" ></p>
+                <p className="mt-8 h-4 w-full bg-slate-200 dark:bg-slate-800 rounded-full" ></p>
+                <p className="mt-3 h-4 w-full bg-slate-200 dark:bg-slate-800 rounded-full" ></p>
+                <p className="mt-3 h-4 w-full bg-slate-200 dark:bg-slate-800 rounded-full" ></p>
+                <p className="mt-3 h-4 w-1/2 bg-slate-200 dark:bg-slate-800 rounded-full" ></p>
             </div>
         </div>
     )

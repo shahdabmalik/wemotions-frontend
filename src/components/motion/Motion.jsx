@@ -92,8 +92,8 @@ const Motion = ({ motion }) => {
             <div className=" mt-1 xs:mt-2 flex flex-col gap-1.5 xs:flex-row items-center justify-between text-xs w-full dark:text-slate-100 font-inter" >
                 <div className="flex justify-between xs:justify-normal gap-5 items-center w-full xs:w-auto" >
                     <p className={"capitalize flex items-center gap-1 font-medium " + (localMotion?.aiScore <= 25 ? "text-red-500" : localMotion?.aiScore > 25 && localMotion?.aiScrore <= 50 ? "text-orange-500" : localMotion?.aiScore > 50 && localMotion?.aiScore <= 75 ? "text-amber-500 dark:text-amber-300 " : "text-green-600 dark:text-green-400")} >A.I Score: <span className={" "} >{localMotion?.aiScore}</span></p>
-                    <p className=" text-green-600 dark:text-green-400 font-medium" >Votes: {localMotion?.votes?.count}</p>
-                    <p className=" text-red-600 dark:text-red-500 font-medium " >Down Votes: {localMotion?.downVotes?.count || 0}</p>
+                    <p className=" text-green-600 dark:text-green-400 font-medium" >UpVotes: {localMotion?.votes?.count}</p>
+                    <p className=" text-red-600 dark:text-red-500 font-medium " >DownVotes: {localMotion?.downVotes?.count || 0}</p>
                 </div>
                 <div className=' self-start text-xs font-semibold dark:text-slate-300 text-slate-500' >{formatDate(localMotion?.createdAt)}</div>
             </div>
