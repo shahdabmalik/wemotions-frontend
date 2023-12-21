@@ -169,6 +169,9 @@ const EntitySkeleton = () => {
                 <p className="mt-8 h-4 w-full bg-slate-200 dark:bg-slate-800 rounded-full" ></p>
                 <p className="mt-3 h-4 w-full bg-slate-200 dark:bg-slate-800 rounded-full" ></p>
                 <p className="mt-3 h-4 w-full bg-slate-200 dark:bg-slate-800 rounded-full" ></p>
+                <p className="mt-3 h-4 xs:hidden w-full bg-slate-200 dark:bg-slate-800 rounded-full" ></p>
+                <p className="mt-3 h-4 xs:hidden w-full bg-slate-200 dark:bg-slate-800 rounded-full" ></p>
+                <p className="mt-3 h-4 xs:hidden w-full bg-slate-200 dark:bg-slate-800 rounded-full" ></p>
                 <p className="mt-3 h-4 w-1/2 bg-slate-200 dark:bg-slate-800 rounded-full" ></p>
             </div>
         </div>
