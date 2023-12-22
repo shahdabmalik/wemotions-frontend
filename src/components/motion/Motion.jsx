@@ -85,7 +85,7 @@ const Motion = ({ motion }) => {
 
     return (
         <div className={" border shadow-lg rounded-md relative dark:bg-black px-2 sm:px-3 pt-1.5 pb-2.5 " + (localMotion?.aiScore <= 25 ? "border-red-500" : localMotion?.aiScore > 25 && localMotion?.aiScrore <= 50 ? "border-orange-500" : localMotion?.aiScore > 50 && localMotion?.aiScore <= 75 ? "border-amber-300" : "border-green-500")} >
-            <Link to={`/${localMotion?.entity?.slug}`} className="text-blue-700 dark:text-blue-500  hover:underline underline-offset-2  mt-1.5 capitalize text-sm font-medium font-inter">{localMotion?.entity?.name}</Link>
+            <Link to={`/entity/${localMotion?.entity?.slug}`} className="text-blue-700 dark:text-blue-500  hover:underline underline-offset-2  mt-1.5 capitalize text-sm font-medium font-inter">{localMotion?.entity?.name}</Link>
             <p className=" dark:text-slate-100 font-semibold">{localMotion?.idea}</p>
             <p className={" dark:text-slate-100 font-semibold mt-1 text-sm " + (showExplanation ? " block " : " hidden ")} >A.I Explanation : <span className="font-normal text-sm dark:text-slate-300" >{localMotion?.aiExplanation}</span></p>
             <span onClick={() => setShowExplanation(!showExplanation)} className="text-xs text-blue-700 dark:text-blue-500 font-medium cursor-pointer hover:underline underline-offset-2" >{showExplanation ? "Hide A.I Explanation" : "See A.I Explanation"}</span>

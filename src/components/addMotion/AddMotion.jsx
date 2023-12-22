@@ -46,7 +46,7 @@ const AddMotion = () => {
     // Debounced API call
     const debouncedLoadOptions = debounce(async (inputValue, callback) => {
         try {
-            const response = await axios.get(`/entity/search?search=${inputValue}&limit=5`);
+            const response = await axios.get(`/entity/search?search=${inputValue}&limit=3`);
             callback(response?.data?.map(entity => ({ value: entity._id, label: entity.name })));
         } catch (error) {
             console.error('Error fetching entities:', error);

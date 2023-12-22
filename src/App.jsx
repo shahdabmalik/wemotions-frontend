@@ -4,6 +4,7 @@ import axios from "axios"
 import useGoogleLogin from "./customHook/useGoogleLogin"
 import { Toaster } from "react-hot-toast"
 import Entity from "./pages/entity/Entity"
+import AllMotions from "./pages/allMotions/AllMotions"
 // import Dashboard from "./pages/dashboard/Dashboard"
 // import Login from "./pages/login/Login"
 
@@ -23,7 +24,8 @@ function App() {
       />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/:slug" element={<Entity />} />
+        <Route path="/motions" element={<AllMotions />} />
+        <Route path="/entity/:slug" element={<Entity />} />
       </Routes>
     </BrowserRouter>
   )
