@@ -20,11 +20,10 @@ const AllMotions = () => {
     const [page, setPage] = useState(1)
     const [hasMore, setHasMore] = useState(true)
 
-
     useEffect(() => {
         async function getMotions() {
             try {
-                const response = await axios.get(`/idea?limit=8&sort=${selectedOption}&page=${page}`);
+                const response = await axios.get(`/idea?limit=8&sort=${selectedOption}&page=${page}&limit=8`);
                 setMotions(prev => [...prev, ...response.data.motions]);
                 if (response.data.motions.length === 0 || response.data.motions.length < 8) {
                     setHasMore(false);
@@ -40,8 +39,11 @@ const AllMotions = () => {
     }, [page, selectedOption])
 
     const onOptionChange = (value) => {
-        setMotions([])
-        setSelectedOption(value)
+        if (value !== selectedOption) {
+            setHasMore(true)
+            setMotions([])
+            setSelectedOption(value)
+        }
     }
     const fetchMoreData = () => {
         if (motions?.length > 0) {

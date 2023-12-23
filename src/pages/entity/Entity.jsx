@@ -21,7 +21,6 @@ const Entity = () => {
     const [motions, setMotions] = useState([])
     const [hasMore, setHasMore] = useState(true)
     const [entityLoading, setEntityLoading] = useState(false)
-    const [motionLoading, setMotionLoading] = useState(false)
     const [selectedOption, setSelectedOption] = useState(options[0].name)
     const [page, setPage] = useState(1)
 
@@ -49,29 +48,28 @@ const Entity = () => {
         async function getMotions() {
             try {
                 if (entity?._id) {
-                    setMotionLoading(true)
-                    const response = await axios.get(`/idea/entityidea?entity=${entity?._id}&sort=${selectedOption}&page=${page}`);
+                    const response = await axios.get(`/idea/entityidea?entity=${entity?._id}&sort=${selectedOption}&page=${page}&limit=8`);
                     setMotions(prev => [...prev, ...response.data.motions]);
-                    if (response.data.motions.length === 0 || response.data.motions.length < 20) {
+                    if (response.data.motions.length === 0 || response.data.motions.length < 8) {
                         setHasMore(false);
                     }
-                    setMotionLoading(false)
                 } else {
                     return
                 }
             } catch (error) {
-                setMotionLoading(false)
                 console.error("Error fetching data: ", error);
                 setHasMore(false);
             }
-
         }
         getMotions()
     }, [page, entity, selectedOption])
 
     const onOptionChange = (value) => {
-        setMotions([])
-        setSelectedOption(value)
+        if (value !== selectedOption) {
+            setHasMore(true)
+            setMotions([])
+            setSelectedOption(value)
+        }
     }
     const fetchMoreData = () => {
         if (motions?.length > 0) {
@@ -106,21 +104,17 @@ const Entity = () => {
                             loader={
                                 hasMore && <div className="flex flex-col gap-8 mt-8 pr-2"  >
                                     <MotionSkeleton />
+                                    <MotionSkeleton />
+                                    <MotionSkeleton />
                                 </div>
                             }
                             className=""
                             endMessage={<span className="block text-center py-8 text-4xl font-semibold" >That&apos;s all, folks!</span>}
                         >
                             <div className="flex flex-col gap-8 mt-8 pr-2"  >
-                                {!motionLoading ? motions.map(motion => (
+                                {motions.map(motion => (
                                     <Motion key={motion?._id} motion={motion} />
-                                )) :
-                                    <>
-                                        <MotionSkeleton />
-                                        <MotionSkeleton />
-                                        <MotionSkeleton />
-                                    </>
-                                }
+                                ))}
                             </div>
                         </InfiniteScroll>
                     </div>
