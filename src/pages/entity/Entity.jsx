@@ -102,7 +102,7 @@ const Entity = () => {
                             next={fetchMoreData}
                             hasMore={hasMore}
                             loader={
-                                hasMore && <div className="flex flex-col gap-8 mt-8 pr-2"  >
+                                hasMore && <div className="flex flex-col gap-8 mt-3 pr-2"  >
                                     <MotionSkeleton />
                                     <MotionSkeleton />
                                     <MotionSkeleton />
