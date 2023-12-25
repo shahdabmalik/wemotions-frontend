@@ -46,7 +46,7 @@ const Navbar = ({ children }) => {
                         <div className="flex gap-5 items-center" >
                             <DarkModeBtn />
                             {!isLoggedIn ? <AuthDialog /> : <img src={user?.profile?.link} alt="profile" className="w-9 h-9 border-2 border-blue-600 rounded-full" />}
-                            { children?.length > 0 && <RiMenuFill size={28} onClick={handleNavMenu} className="md:hidden text-black dark:text-slate-300 block" />}
+                            { children?.length !== 0 && <RiMenuFill size={28} onClick={handleNavMenu} className="md:hidden text-black dark:text-slate-300 block" />}
                         </div>
                     </div>
                 </nav>

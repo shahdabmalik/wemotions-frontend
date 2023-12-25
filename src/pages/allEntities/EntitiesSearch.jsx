@@ -16,6 +16,7 @@ const EntitiesSearch = () => {
     const [page, setPage] = useState(1)
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         async function searchMotions() {
             try {
                 const response = await axios.get(`/entity?limit=8&page=${page}&search=${search}`)

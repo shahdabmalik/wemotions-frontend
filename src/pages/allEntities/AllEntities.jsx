@@ -19,6 +19,7 @@ const AllEntities = () => {
 
     // get motion on intial load
     useEffect(() => {
+        window.scrollTo(0, 0);
         async function getMotions() {
             try {
                 const response = await axios.get(`/entity?limit=8&&page=${page}`);
