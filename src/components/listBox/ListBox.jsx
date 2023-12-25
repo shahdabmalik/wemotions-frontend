@@ -16,7 +16,7 @@ export default function ListBox({ options, onOptionChange }) {
             <Listbox value={selected} onChange={handleChange}>
                 <div className="relative mt-1">
                     <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white dark:bg-slate-900 transition-none md:transition-colors ease-linear py-1.5 px-3 text-left border dark:border-slate-800 focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
-                        <span className="block truncate font-semibold">Sorted : {selected.name}</span>
+                        <span className="block truncate font-semibold text-slate-800 dark:text-slate-200">Sorted : {selected.name}</span>
                         <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"><TiArrowUnsorted aria-hidden="true" /></span>
                     </Listbox.Button>
                     <Transition

@@ -67,7 +67,7 @@ const AllMotions = () => {
                         next={fetchMoreData}
                         hasMore={hasMore}
                         loader={
-                            hasMore && <div className="flex flex-col gap-8 mt-3 pr-2"  >
+                            hasMore && <div className={"flex flex-col gap-8 pr-2" + (motions.length === 0 ? " mt-0 " : " mt-8 ")}  >
                                 <MotionSkeleton />
                                 <MotionSkeleton />
                                 <MotionSkeleton />
