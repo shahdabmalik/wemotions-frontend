@@ -42,6 +42,7 @@ const AllMotions = () => {
         if (value !== selectedOption) {
             setHasMore(true)
             setMotions([])
+            setPage(1)
             setSelectedOption(value)
         }
     }
@@ -53,7 +54,7 @@ const AllMotions = () => {
     return (
         <div className='w-full min-h-screen bg-white dark:bg-slate-950 transition-none md:transition-colors text-slate-700 dark:text-slate-300' >
             <Navbar>
-                <NavbarLink path={"/entites"} name={"Entities"} />
+                <NavbarLink path={"/pages"} name={"Motion Pages"} />
             </Navbar>
             <div className="w-full max-w-screen-xl mx-auto px-4 md:px-10 pt-24 " >
                 <div className="flex justify-between items-center border-b dark:border-slate-800 pb-2 transition-none md:transition-colors ease-linear" >

@@ -7,6 +7,7 @@ import ListBox from "../../components/listBox/ListBox"
 import InfiniteScroll from "react-infinite-scroll-component"
 import Motion from "../../components/motion/Motion"
 import MotionSkeleton from "../../components/motion/MotionSkeleton"
+import NavbarLink from "../../components/navbar/NavbarLink"
 
 const options = [
     { name: 'A.I' },
@@ -68,6 +69,7 @@ const Entity = () => {
         if (value !== selectedOption) {
             setHasMore(true)
             setMotions([])
+            setPage(1)
             setSelectedOption(value)
         }
     }
@@ -79,7 +81,10 @@ const Entity = () => {
 
     return (
         <div className={'w-full min-h-screen bg-white dark:bg-slate-950 transition-none md:transition-colors duration-300 ease-linear text-slate-700 dark:text-slate-300 '} >
-            <Navbar />
+            <Navbar>
+                <NavbarLink path={"/motions"} name={"Motions"} />
+                <NavbarLink path={"/pages"} name={"Motion Pages"} />
+            </Navbar>
             <div className="w-full max-w-screen-xl mx-auto px-4 md:px-10 " >
                 {!entityLoading ? (
                     <div className="pt-24" >
@@ -109,7 +114,7 @@ const Entity = () => {
                                 </div>
                             }
                             className=""
-                            endMessage={<span className="block text-center py-8 text-4xl font-semibold" >That&apos;s all, folks!</span>}
+                            endMessage={<span className="block text-center py-8 text-3xl font-semibold" >That&apos;s all, folks!</span>}
                         >
                             <div className="flex flex-col gap-8 mt-8 pr-2"  >
                                 {motions.map(motion => (
