@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import Navbar from "../../components/navbar/Navbar"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import toast from "react-hot-toast"
 import axios from "axios"
 import ListBox from "../../components/listBox/ListBox"
@@ -8,6 +8,7 @@ import InfiniteScroll from "react-infinite-scroll-component"
 import Motion from "../../components/motion/Motion"
 import MotionSkeleton from "../../components/motion/MotionSkeleton"
 import NavbarLink from "../../components/navbar/NavbarLink"
+import AddMotion from "../../components/addMotion/AddMotion"
 
 const options = [
     { name: 'A.I' },
@@ -45,26 +46,29 @@ const Entity = () => {
         setPage(1)
     }, [slug])
 
-    useEffect(() => {
-        async function getMotions() {
-            try {
-                if (entity?._id) {
-                    const response = await axios.get(`/idea/entityidea?entity=${entity?._id}&sort=${selectedOption}&page=${page}&limit=8`);
-                    setMotions(prev => [...prev, ...response.data.motions]);
-                    if (response.data.motions.length === 0 || response.data.motions.length < 8) {
-                        setHasMore(false);
-                    }
-                } else {
-                    return
+    const getMotions = useCallback(async () => {
+        try {
+            if (entity?._id) {
+                const response = await axios.get(`/idea/entityidea?entity=${entity?._id}&sort=${selectedOption}&page=${page}&limit=8`);
+                setMotions(prev => [...prev, ...response.data.motions]);
+                if (response.data.motions.length === 0 || response.data.motions.length < 8) {
+                    setHasMore(false);
                 }
-            } catch (error) {
-                console.error("Error fetching data: ", error);
-                setHasMore(false);
+            } else {
+                return
             }
+        } catch (error) {
+            console.error("Error fetching data: ", error);
+            setHasMore(false);
         }
-        getMotions()
-    }, [page, entity, selectedOption])
+    }, [entity?._id, page, selectedOption])
 
+    // get motions
+    useEffect(() => {
+        getMotions()
+    }, [getMotions])
+
+    // option change
     const onOptionChange = (value) => {
         if (value !== selectedOption) {
             setHasMore(true)
@@ -78,6 +82,12 @@ const Entity = () => {
             setPage(prev => prev + 1);
         }
     };
+
+    const resetMotions = () => {
+        setPage(1)
+        setMotions([])
+        getMotions()
+    }
 
     return (
         <div className={'w-full min-h-screen bg-white dark:bg-slate-950 transition-none md:transition-colors duration-300 ease-linear text-slate-700 dark:text-slate-300 '} >
@@ -93,6 +103,7 @@ const Entity = () => {
                             <h1 className="capitalize flex-grow text-4xl font-bold dark:text-slate-100 text-slate-900" >{entity?.name}</h1>
                         </div>
                         <p className="mt-5" >{entity?.description}</p>
+                        <AddMotion id={entity?._id} resetMotions={resetMotions} />
                     </div>
                 ) : (<EntitySkeleton />)}
 
@@ -107,7 +118,7 @@ const Entity = () => {
                             next={fetchMoreData}
                             hasMore={hasMore}
                             loader={
-                                hasMore && <div className="flex flex-col gap-8 mt-3 pr-2"  >
+                                hasMore && <div className={"flex flex-col gap-8 pr-2 " +(motions.length === 0 ? " mt-0 " : " mt-8 ")}  >
                                     <MotionSkeleton />
                                     <MotionSkeleton />
                                     <MotionSkeleton />
@@ -147,6 +158,7 @@ const EntitySkeleton = () => {
                 <p className="mt-3 h-4 xs:hidden w-full bg-slate-200 dark:bg-slate-800 rounded-full" ></p>
                 <p className="mt-3 h-4 w-1/2 bg-slate-200 dark:bg-slate-800 rounded-full" ></p>
             </div>
+            <div className="h-9 w-[138px] bg-slate-200 rounded dark:bg-slate-800 mt-4" ></div>
         </div>
     )
 }

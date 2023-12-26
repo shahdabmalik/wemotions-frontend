@@ -67,7 +67,7 @@ const AllMotions = () => {
                         next={fetchMoreData}
                         hasMore={hasMore}
                         loader={
-                            hasMore && <div className={"flex flex-col gap-8 pr-2" + (motions.length === 0 ? " mt-0 " : " mt-8 ")}  >
+                            hasMore && <div className={"flex flex-col gap-8" + (motions.length === 0 ? " mt-0 " : " mt-8 ")}  >
                                 <MotionSkeleton />
                                 <MotionSkeleton />
                                 <MotionSkeleton />
@@ -76,7 +76,7 @@ const AllMotions = () => {
                         className=""
                         endMessage={<span className="block text-center py-8 text-4xl font-semibold" >That&apos;s all, folks!</span>}
                     >
-                        <div className="flex flex-col gap-8 mt-8 pr-2"  >
+                        <div className="flex flex-col gap-8 mt-8"  >
                             {motions.map(motion => (
                                 <Motion key={motion?._id} motion={motion} />
                             ))}

@@ -66,7 +66,7 @@ const AllEntities = () => {
             <div className="w-full max-w-screen-xl mx-auto px-4 md:px-10 pt-24 " >
                 <div className="flex flex-col sm:flex-row gap-4 items-start justify-between sm:items-center sm:border-b dark:border-slate-800 pb-2 transition-none  ease-linear" >
                     <h3 className="text-3xl border-b sm:border-none dark:border-slate-800 w-full sm:w-auto pb-2 sm:pb-0 font-inter font-bold transition-none text-slate-800 dark:text-slate-200" >Motion Pages</h3>
-                    <div className=" w-full sm:w-auto flex items-center border  dark:border-slate-700 dark:text-slate-300 text-slate-700 rounded-full overflow-hidden pl-3 pr-1.5 py-1.5 sm:py-1 bg-white dark:bg-slate-900" >
+                    <div className=" w-full sm:w-auto flex items-center border-2  dark:border-slate-700 dark:text-slate-300 text-slate-700 rounded-full overflow-hidden pl-3 pr-1.5 py-1.5 sm:py-1 bg-white dark:bg-slate-900" >
                         <input type="text" value={search} onKeyUp={handleKeyUp} onChange={(e) => setSearch(e.target.value)} placeholder="Search by name" className="max-w-full sm:max-w-xs w-full bg-inherit focus:outline-none placeholder:text-sm dark:placeholder:text-slate-500" />
                         <CiSearch size={24} className="cursor-pointer text-blue-500" onClick={() => handleSearch()} />
                     </div>
