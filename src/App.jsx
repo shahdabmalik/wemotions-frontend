@@ -7,6 +7,7 @@ import Entity from "./pages/entity/Entity"
 import AllMotions from "./pages/allMotions/AllMotions"
 import AllEntities from "./pages/allEntities/AllEntities"
 import EntitiesSearch from "./pages/allEntities/EntitiesSearch"
+import Manifesto from "./pages/manifesto/Manifesto"
 // import Dashboard from "./pages/dashboard/Dashboard"
 // import Login from "./pages/login/Login"
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/motions" element={<AllMotions />} />
         <Route path="/pages" element={<AllEntities />} />
+        <Route path="/manifesto" element={<Manifesto />} />
         <Route path="/pages/search/:search" element={<EntitiesSearch />} />
         <Route path="/:slug" element={<Entity />} />
       </Routes>

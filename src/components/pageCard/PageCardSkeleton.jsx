@@ -14,7 +14,7 @@ const PageCardSkeleton = () => {
             <div className="mt-2 h-3 w-full bg-slate-300 dark:bg-slate-800 rounded-full sm:hidden" ></div>
             <div className="mt-2 h-3 w-full bg-slate-300 dark:bg-slate-800 rounded-full sm:hidden" ></div>
             <div className="mt-2 h-3 w-3/4 bg-slate-300 dark:bg-slate-800 rounded-full sm:hidden" ></div>
-            <div className="mt-4 flex items-center justify-between xs:justify-normal gap-5" >
+            <div className="mt-4 flex items-center gap-5" >
                 <div className="h-[37.6px] w-[37.6px] bg-slate-300 dark:bg-slate-800 rounded-full" ></div>
                 <div className="h-[37.6px] w-[37.6px] bg-slate-300 dark:bg-slate-800 rounded-full" ></div>
                 <div className="h-[37.6px] w-[37.6px] bg-slate-300 dark:bg-slate-800 rounded-full" ></div>

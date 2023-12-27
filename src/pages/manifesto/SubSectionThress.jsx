@@ -1,0 +1,30 @@
+
+import image6 from "../../assets/manifesto-6.webp"
+import image7 from "../../assets/manifesto-7.webp"
+
+const SubSectionThree = () => {
+    return (
+        <div className='mt-16' >
+            <h3 className='text-lg font-semibold' >Why Does This Work SO Well? {`(`}Especially At Manifesting Crazy Ideas{`)`}</h3>
+            <p className='mt-6' >Its all based on winning the competition of engagement of your fanbase, and of the algorithm. In this place 99.9% of videos are not a part of a greater narrative, so your short form consistent narrative towards a crazy idea builds a cult-like following wanting to see if things will manifest (and the algorithm notices). It is really able to hone into a niche, and this rallies attention of the world around an idea. As you prove yourself in continuing to try, and people become closer to you from consistently seeing you try, theres lots of compounding effects.</p>
+            <p className='mt-6' >Even if they do not become a follower right away, story-hacking has a way of continuing to build a movement. When you engage fully with a video from any account, even if you don&apos;t follow them, their next video is likely to come up on your feed. 99.9% of videos are not consecutive storytelling videos by this I mean channels that continue telling the same path rather than act as a totally separate skit. Relative to your average video, videos which are storytelling to the previous one you hack the engagement of the people watching it.</p>
+            <p className='mt-6' >We have a reason to CARE, and for a true FAN BASE to emerge of each story. As the storytelling of each new day repeats, a core fan base who consistently watched the entire update video of the story emerged. This is based on the quality of the content, progression of the story, and reward of the finish at the end of course. These channels if properly created with an interested end goal, end up viral hacking these short form platforms.</p>
+            <p className='mt-6' >Content that is a SERIES that someone can follow and appreciate creates a far more compelled and engaged fanbase than any other thing. Each new video has a dedicated audience which helps viral hack the algorithm. The more dedication there is, the closer people realize the flag pole may be attained, the more invested in the story they become.</p>
+            <p className='mt-6' >While lots of creators have recently been birthed from short form storytelling, such as waiting outside Twitter until they met Elon Musk, no creator has made that mission a part of a grander narrative for the world. Thus, even though these missions are expertly targeted, the viewers disengage once the content goes back to randomness.</p>
+            <p className='mt-6' >Once that story ends, they go back to making mundane content, not related to a bigger narrative, and the views die.</p>
+            <div className='mt-8 flex items-center justify-center shadow-xl w-full border bg-black dark:border-slate-800' ><img className=' w-full' src={image6} alt='image' /></div>
+            <p className='mt-8' >How To Storyhack bigger dreams than ever before. How to make your mission unstoppable:</p>
+            <p className='mt-6 font-semibold' >HUMANS ARE BUILT TO LOVE GREAT STORIES. From huddling around campfires to huddling around the light of our screens. The major difference is that now stories can catalyze to the entire world faster than ever before. The butterfly effect is truly in your hands.</p>
+            <p className='mt-6' >Thats why theres never been a better time to go after the greatest story you can imagine. What is your life&apos;s greatest moonshot? This is a tool to get you there. </p>
+            <p className='mt-6' >Remember the flag from our previous chart? It represented a big mission. Each video itself represented a process leading towards that mission. Storyhacking combined these two ideas, and hacks the internet, your fanbase, and the world. </p>
+            <p className='mt-6' >Whats awesome about growth on any account, is that it can embolden any other thing you have. Most people tend to just send people to their instagram, maybe get followers there, some send people to newsletters or have a product to sell. There is actually no one who has taken the framework of developing multiple short form update narratives, leading to greater and greater missions.</p>
+            <p className='mt-6' >Once a single account goes viral, every single other account will get more traction as well. A <a src="https://linktr.ee" className="text-blue-500" >Linktree</a> may be utilized to link people to all other accounts, or tags made in the comments or bio. A pinned video on each separate account can parlay this greater narrative overall to the viewers, so they follower all accounts. </p>
+            <div className='mt-8 flex items-center justify-center shadow-xl w-full border bg-white dark:border-slate-800' ><img className=' w-full max-w-lg' src={image7} alt='image' /></div>
+            <p className='mt-8' >Whats insanely cool about this is just how powerful of an idea this is. Theres something to be said about “Critical Mass” of ideas. Every idea someone commits too requires a different amount of critical mass to reach to get them truly interested and following. We are attracted to stories with insane potential, as we know the shorter our distance from their epicenter the better. With this idea, with so many accounts, the amount of commitment itself, and the uniqueness of this idea has a much much lower critical mass point for followers.</p>
+            <p className='mt-6' >Every Mountaintop Climbed, Gives Hope, Support, And Resources For Higher Mountains.</p>
+            <p className='mt-6 font-semibold' >What may seem impossible now, becomes more possible with every like, every video, every ounce of effort.</p>
+        </div>
+    )
+}
+
+export default SubSectionThree

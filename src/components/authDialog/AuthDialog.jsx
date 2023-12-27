@@ -32,10 +32,10 @@ const AuthDialog = () => {
             }
             console.log(userObj);
             const data = await loginUserGoogle(userData)
-            dispatch(SET_USER(data.user))
+            dispatch(SET_USER(data?.user))
             dispatch(SET_LOGIN(true))
             dispatch(SET_AUTH_DIALOG(false))
-            window.localStorage.setItem('token', data.token)
+            window.localStorage.setItem('token', data?.token)
             toast.success("Logged In")
         } catch (error) {
             console.log(error);

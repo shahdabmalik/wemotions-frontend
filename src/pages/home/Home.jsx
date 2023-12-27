@@ -9,6 +9,7 @@ const Home = () => {
   return (
     <div className='w-full min-h-screen bg-white dark:bg-slate-950 transition-none md:transition-colors text-slate-700 dark:text-slate-300' >
       <Navbar>
+        <NavbarLink path={"/manifesto"} name={"Manifesto"} />
         <NavbarLink path={"/motions"} name={"Motions"} />
         <NavbarLink path={"/pages"} name={"Motion Pages"} />
       </Navbar>
