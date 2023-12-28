@@ -3,13 +3,13 @@ import image4 from "../../assets/manifesto-4.webp"
 import image5 from "../../assets/manifesto-5.webp"
 import video1 from "../../assets/video1.mp4"
 import video2 from "../../assets/video2.mp4"
-import { BiSolidDownArrow, BiSolidRightArrow} from "react-icons/bi";
+import { BiSolidDownArrow, BiSolidRightArrow } from "react-icons/bi";
 import parse from "html-react-parser"
 import { useEffect, useState } from "react"
 
 const SubSectionTwo = () => {
 
-    const [show, setShow] = useState(false)   
+    const [show, setShow] = useState(false)
 
     useEffect(() => {
         // window.scrollTo(0, 0)
@@ -36,7 +36,7 @@ const SubSectionTwo = () => {
                 {show ? <BiSolidDownArrow /> : <BiSolidRightArrow />}
                 <h4 className='' ><b>More Examples of Storytelling Pages:</b></h4>
             </div>
-            <div className={'mt-8 ' + (show ? " h-auto border p-4 dark:border-slate-800 " : " h-0 overflow-hidden ")} >
+            {show && <div className='mt-8 h-auto border p-2 dark:border-slate-800 '>
                 <div>{parse(`<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@fidias0" data-unique-id="fidias0" data-embed-type="creator" style="max-width: 100%; min-width: 288px;" > <section> <a target="_blank" href="https://www.tiktok.com/@fidias0?refer=creator_embed">@fidias0</a> </section> </blockquote>`)}</div>
                 <div className='mt-8' >{parse(`<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@sel.elh/video/7290226482515823905" data-video-id="7290226482515823905" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@sel.elh" href="https://www.tiktok.com/@sel.elh?refer=embed">@sel.elh</a> Sister talk✨ <a title="raar" target="_blank" href="https://www.tiktok.com/tag/raar?refer=embed">#raar</a> <a title="gym" target="_blank" href="https://www.tiktok.com/tag/gym?refer=embed">#gym</a> <a title="grappig" target="_blank" href="https://www.tiktok.com/tag/grappig?refer=embed">#grappig</a> <a title="relatable" target="_blank" href="https://www.tiktok.com/tag/relatable?refer=embed">#relatable</a> <a title="vrouwen" target="_blank" href="https://www.tiktok.com/tag/vrouwen?refer=embed">#vrouwen</a> <a target="_blank" title="♬ origineel geluid - Selma" href="https://www.tiktok.com/music/origineel-geluid-7290226494285171488?refer=embed">♬ origineel geluid - Selma</a> </section> </blockquote>`)}</div>
                 <div className='flex justify-center mt-8' >{parse(`<iframe width="315" height="560" src="https://www.youtube.com/embed/DVgzYlJztI8" title="YouTube ideo player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"allowfullscreen></iframe>`)}</div>
@@ -58,7 +58,7 @@ const SubSectionTwo = () => {
                 <p className='mt-8' >I have not seen a single person take this method, and create an ecosystem effect out of it. Tackling multiple large goals at once means fanbases will emerge across the accounts, and when one flag post gets taken down, the entire vision and roadmap will become even more enticing and fun to consume.</p>
                 <p className='mt-8' >Each separate social media account going after a goal is represented by a flag pole here. The different flag poles of each account vary in difficulty. As different flags get knocked down, the end state flag becomes more tangible as possible in the viewers eye, and the story of the other flags also becomes more interesting.</p>
                 <div className='mt-8 flex items-center justify-center p-4 w-full bg-white' ><img className=' w-full max-w-xl ' src={image5} alt='image' /></div>
-            </div>
+            </div>}
             {/* {show && <div className='mt-4 flex gap-4 items-center font-semibold cursor-pointer' onClick={() => setShow(false)} ><BiSolidUpArrow /> Hide Examples</div>} */}
         </div>
     )

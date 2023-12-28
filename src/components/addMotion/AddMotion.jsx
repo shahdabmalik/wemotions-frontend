@@ -93,7 +93,7 @@ const AddMotion = ({ id, resetMotions }) => {
                                         <form onSubmit={handleSubmit(onSubmit)} >
                                             <div className='mt-4 flex flex-col gap-2 relative'  >
                                                 <label className='font-semibold text-slate-700 dark:text-slate-300' >Motion</label>
-                                                <textarea type="motion" name="motion" id="motion"
+                                                <textarea name="motion" id="motion"
                                                     {...register('motion', {
                                                         required: 'Please enter your motion',
                                                         minLength: { value: 20, message: "Motion must be upto 20 characters." },

@@ -1,7 +1,8 @@
 import Navbar from '../../components/navbar/Navbar'
 import NavbarLink from '../../components/navbar/NavbarLink'
+import ContactForm from './ContactForm'
+import SubSectionFive from './SubSectionFive'
 import SubSectionFour from './SubSectionFour'
-
 import SubSectionOne from './SubSectionOne'
 import SubSectionThree from './SubSectionThress'
 import SubSectionTwo from './SubSectionTwo'
@@ -18,6 +19,8 @@ const Manifesto = () => {
                 <SubSectionTwo />
                 <SubSectionThree />
                 <SubSectionFour />
+                <SubSectionFive />
+                <ContactForm />
             </div>
         </div>
     )
