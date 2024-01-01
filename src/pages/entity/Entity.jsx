@@ -109,7 +109,7 @@ const Entity = () => {
 
                 <div className="mt-16" >
                     <div className=" flex justify-between items-end border-b pb-1 dark:border-slate-800 border-slate-300 transition-colors" >
-                        <h3 className="text-3xl text-slate-800 dark:text-slate-200 font-semibold " >Motions</h3>
+                        <h3 className="text-3xl text-purple-600 dark:text-purple-500 font-semibold " >Motions</h3>
                         <ListBox options={options} onOptionChange={onOptionChange} />
                     </div>
                     <div className="mt-5" >

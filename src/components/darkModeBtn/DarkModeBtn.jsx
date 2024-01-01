@@ -27,7 +27,7 @@ const DarkModeBtn = () => {
 
     return (
         <>
-            <button onClick={handleDarkMode} type="button" className=" text-slate-800 dark:text-orange-400 dark:hover:text-orange-300  focus:outline-none hidden md:block" >
+            <button onClick={handleDarkMode} type="button" className=" text-slate-800 dark:text-orange-400 focus:outline-none hidden md:block" >
                 {darkMode === "light" ? <IoIosMoon size={26} /> : <IoMdSunny size={26} />}
             </button>
             <button onClick={handleDarkMode} type="button" className=" text-slate-800 dark:text-orange-400  focus:outline-none md:hidden" >

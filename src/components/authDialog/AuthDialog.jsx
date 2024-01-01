@@ -58,7 +58,7 @@ const AuthDialog = () => {
 
     return (
         <>
-            <button className='px-2 py-1 text-white bg-blue-600 rounded-full flex gap-1.5 font-semibold items-center' type='button' onClick={openModal} ><IoLogoGoogle size={16} />Login </button>
+            <button className='px-2 py-1 text-white bg-purple-600 rounded-full flex gap-1.5 font-semibold items-center' type='button' onClick={openModal} ><IoLogoGoogle size={16} />Login </button>
             <Transition appear show={authDialog} as={Fragment}>
                 <Dialog as="div" className="relative z-[100]" onClose={closeModal}>
                     <Transition.Child

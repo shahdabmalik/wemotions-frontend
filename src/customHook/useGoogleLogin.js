@@ -45,7 +45,7 @@ const useGoogleLogin = () => {
     // check login function
     async function checkLogin() {
         const data = await loginStatus()
-        if (data.user) {
+        if (data?.user) {
             dispatch(SET_USER(data.user))
             dispatch(SET_LOGIN(true))
         } else {

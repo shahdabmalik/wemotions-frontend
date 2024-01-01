@@ -56,7 +56,7 @@ const AddMotion = ({ id, resetMotions }) => {
 
     return (
         <>
-            <button type='button' onClick={openModal} className='bg-green-600 hover:bg-green-500 text-white font-semibold px-3 py-1.5 rounded mt-4' >Submit Motion</button>
+            <button type='button' onClick={openModal} className='bg-purple-600 hover:bg-purple-700 text-white font-semibold px-3 py-1.5 rounded mt-4' >Submit Motion</button>
             <Transition appear show={isOpen} as={Fragment}>
                 <Dialog as="div" className="relative z-[100]" onClose={closeModal}>
                     <Transition.Child

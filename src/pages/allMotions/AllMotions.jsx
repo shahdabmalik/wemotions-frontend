@@ -58,7 +58,7 @@ const AllMotions = () => {
             </Navbar>
             <div className="w-full max-w-screen-xl mx-auto px-4 md:px-10 pt-24 " >
                 <div className="flex justify-between items-center border-b dark:border-slate-800 pb-2 transition-none md:transition-colors ease-linear" >
-                    <h3 className="text-2xl md:text-4xl font-inter font-bold transition-none" >All Motions</h3>
+                    <h3 className="text-2xl md:text-4xl font-inter font-bold transition-none text-purple-600 dark:text-purple-500" >All Motions</h3>
                     <ListBox options={options} onOptionChange={onOptionChange} />
                 </div>
                 <div className="mt-5" >

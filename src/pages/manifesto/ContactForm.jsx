@@ -6,7 +6,7 @@ import { Oval } from "react-loader-spinner"
 
 const ContactForm = () => {
 
-    const { handleSubmit, register, formState: { errors } } = useForm()
+    const { handleSubmit, register, setValue, formState: { errors } } = useForm()
     const [isLoading, setIsLoading] = useState(false)
     const [success, setSuccess] = useState(false)
 
@@ -16,6 +16,9 @@ const ContactForm = () => {
             const response = await axios.post("/contact", data)
             toast.success(response?.data?.message)
             setSuccess(true)
+            setValue('name', '')
+            setValue('email', '')
+            setValue('message', '')
             setIsLoading(false)
         } catch (error) {
             setSuccess(false)
