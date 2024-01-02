@@ -17,7 +17,7 @@ const HeroSection = () => {
                     <Link to={"/pages"} type="button" className="w-36 xs:w-40 xs:text-base text-sm h-9 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded flex items-center justify-center" >Motions Pages</Link>
                 </div>
             </div>
-            <div className="w-full max-w-[250px] xs:max-w-xs sm:max-w-sm md:max-w-md" >
+            <div className="w-full max-w-[280px] xs:max-w-xs sm:max-w-sm md:max-w-md" >
                 <Lottie animationData={heroAnimation} />
             </div>
 

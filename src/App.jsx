@@ -50,21 +50,21 @@ function App() {
             </AdminDashboard>
           }
         />
-        <Route path="/pages/add"
+        <Route path="admin/pages/add"
           element={
             <AdminDashboard>
               <AddPage />
             </AdminDashboard>
           }
         />
-        <Route path="/pages/edit/:id"
+        <Route path="/admin/pages/edit/:id"
           element={
             <AdminDashboard>
               <EditPage />
             </AdminDashboard>
           }
         />
-        <Route path="/pages/:id"
+        <Route path="admin/pages/:id"
           element={
             <AdminDashboard>
               <EntityPage />

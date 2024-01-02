@@ -36,3 +36,24 @@ html.dark .toast {
     border: 1px solid white;
     padding: 4px 8px !important;
 }
+
+/* html.dark .select-input div{
+} */
+
+html.dark .select-input .css-13cymwt-control, html.dark .select-input .css-t3ipsp-control{
+    border: 1px solid #334155 !important; 
+    background-color: #020617 !important;
+    color: #ffffff !important;
+    /* color: white !important; */
+}
+.html.dark .select-input .css-w9q2zk-Input2{
+    color: white !important;
+}
+
+html.dark .css-1dimb5e-singleValue{
+    color: white;
+}
+
+html.dark .select-input .css-1nmdiq5-menu div {
+    background-color: #0f172a !important;
+}
