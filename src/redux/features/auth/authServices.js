@@ -5,11 +5,8 @@ import { SET_LOGIN } from "./authSlice";
 
 // login user google
 export const loginUserGoogle = async (data) => {
-    const token = window.localStorage.getItem("token")
     try {
-        const response = await axios.post("/auth/google", data, {
-            headers: { Authorization: `Bearer ${token}` }
-        })
+        const response = await axios.post("/auth/google", data)
         return response.data
     } catch (error) {
         console.log(error);
@@ -22,7 +19,7 @@ export const loginUserGoogle = async (data) => {
 export const loginStatus = async () => {
     const token = window.localStorage.getItem("token")
     try {
-        const response = await axios.get("/auth/loggedin", {}, {
+        const response = await axios.get("/auth/loggedin", {
             headers: { Authorization: `Bearer ${token}` }
         })
         return response.data
