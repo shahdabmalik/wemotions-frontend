@@ -98,7 +98,7 @@ const AddMotion = ({ id, resetMotions }) => {
                                                         required: 'Please enter your motion',
                                                         minLength: { value: 20, message: "Motion must be upto 20 characters." },
                                                     })}
-                                                    className=" h-32 bg-white border border-slate-300 dark:border-slate-800 placeholder:text-sm dark:placeholder:text-slate-600 dark:placeholder:font-semibold transition-all duration-300 ease-linear rounded focus:outline-none p-2 " />
+                                                    className=" h-32 text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 placeholder:text-sm dark:placeholder:text-slate-600 dark:placeholder:font-semibold transition-all duration-300 ease-linear rounded focus:outline-none p-2 " />
                                                 {errors.motion && <p className="text-[11px] text-red-600 font-semibold absolute -bottom-[20px] right-0.5">{errors.motion.message}</p>}
                                             </div>
                                             <button type='submit' className='mt-8 flex items-center justify-center w-full h-11 rounded font-semibold bg-blue-700 text-white hover:bg-blue-600'>

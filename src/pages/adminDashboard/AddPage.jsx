@@ -14,26 +14,47 @@ const AddPage = () => {
     const [isLoading, setIsLoading] = useState(false)
 
     const onSubmit = async (data) => {
-        const formData = {
-            name: data?.name,
-            type: data?.type?.value,
-            socialMediaLinks: [
-                { name: "twitter", link: data?.twitter.length > 0 ? data?.twitter : null },
-                { name: "instagram", link: data?.instagram.length > 0 ? data?.instagram : null },
-                { name: "facebook", link: data?.facebook.length > 0 ? data?.facebook : null },
-                { name: "tiktok", link: data?.tiktok.length > 0 ? data?.tiktok : null },
-                { name: "youtube", link: data?.youtube.length > 0 ? data?.youtube : null },
-            ],
-            additionalLinks: [
-                data?.link1.length > 0 ? data?.link1 : null,
-                data?.link2.length > 0 ? data?.link2 : null,
-                data?.link3.length > 0 ? data?.link3 : null,
-            ]
-        }
+        console.log(data);
         try {
+            let socialMediaLinks = [
+                { name: "twitter", link: data?.twitter },
+                { name: "instagram", link: data?.instagram },
+                { name: "facebook", link: data?.facebook },
+                { name: "tiktok", link: data?.tiktok },
+                { name: "youtube", link: data?.youtube },
+            ]
+
+            const formData = new FormData()
+            // Append simple text fields
+            formData.append('name', data?.name);
+            formData.append('type', data?.type?.value);
+            // Append social media links
+            socialMediaLinks?.forEach(link => {
+                if (link.link && link.link.length > 0) {
+                    formData.append(link?.name, link?.link);
+                }
+            });
+            // Append additional links
+            if (data.link1 && data.link1.length > 0) {
+                formData.append('link1', data.link1);
+            }
+            if (data.link2 && data.link2.length > 0) {
+                formData.append('link2', data.link2);
+            }
+            if (data.link3 && data.link3.length > 0) {
+                formData.append('link3', data.link3);
+            }
+
+            // Append the image file if it exists
+            if (data?.image && data?.image?.length > 0) {
+                formData.append('image', data?.image[0]);
+            }
+            for (let [key, value] of formData.entries()) {
+                console.log(key, value);
+            }
             setIsLoading(true)
             const response = await axios.post("/entity/add", formData, {
-                headers: { Authorization: `Bearer ${token}` }
+                headers: { Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data" }
             })
             toast.success(response?.data?.message)
             navigate("/admin/pages")
@@ -41,7 +62,7 @@ const AddPage = () => {
         } catch (error) {
             setIsLoading(false)
             console.log(error);
-            const message = error.response.data.message || error.message
+            const message = error?.response?.data?.message || error.message
             toast.error(message)
         }
     }
@@ -79,6 +100,21 @@ const AddPage = () => {
                                         className=' font-medium select-input'
                                     />
                                 )}
+                            />
+                            {errors.type && <p className='absolute -bottom-5 right-0 text-xs text-red-600 dark:text-red-500 font-semibold' >{errors.type.message}</p>}
+                        </div>
+                        <div className='relative flex flex-col gap-2'>
+                            <label className='font-semibold text-slate-700 dark:text-slate-300 text-sm' >Type</label>
+                            <input
+                                type="file"
+                                {...register('image', {
+                                    required: 'Image is required',
+                                    validate: {
+                                        isImage: (files) => files[0]?.type.includes('image/') || 'Only images are allowed'
+                                    }
+                                })}
+                                accept="image/*" // Accept only image files
+                                className="flex items-center h-[38px] w-full cursor-pointer file:cursor-pointer border border-slate-300 dark:border-slate-700 rounded text-sm text-slate-800 dark:text-slate-200 dark:file:text-slate-100 focus:z-10 file:h-10 file:bg-gray-50 dark:file:bg-slate-900 file:border-0  file:me-4 file:py-1.5 file:px-4 "
                             />
                             {errors.type && <p className='absolute -bottom-5 right-0 text-xs text-red-600 dark:text-red-500 font-semibold' >{errors.type.message}</p>}
                         </div>
@@ -130,7 +166,7 @@ const AddPage = () => {
                                 {...register('tiktok', {
                                     pattern: {
                                         // eslint-disable-next-line no-useless-escape
-                                        value: /^(https?:\/\/)?(www\.)?tiktok\.com\/[a-zA-Z0-9(\.\?)?]+/,
+                                        value: /^https:\/\/www\.tiktok\.com\/@/,
                                         message: "Please enter valid tiktok URL"
                                     }
                                 })}

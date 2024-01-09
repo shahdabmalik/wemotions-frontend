@@ -52,7 +52,7 @@ const PagesPanel = () => {
                 {!isLoading ? filteredPages?.map((page) => (
                     <div key={page?._id} className="border-b hover:bg-slate-50 dark:hover:bg-slate-900 border-slate-200 dark:border-slate-800 md:transition-colors py-2 xs:px-2 flex justify-between items-center" >
                         <div className="flex gap-3 items-center">
-                            <div className="h-8 w-8 rounded-full bg-slate-100 dark:bg-slate-800 md:transition-colors" ></div>
+                            <div className="h-8 w-8 rounded-full overflow-hidden bg-slate-100 dark:bg-slate-800 md:transition-colors" ><img src={page?.image?.url} alt={page?.name} /></div>
                             <Link to={`/admin/pages/${page?._id}`} className="capitalize text-lg font-semibold hover:text-purple-600" >{page?.name}</Link>
                         </div>
                         <div className="flex gap-2" >
@@ -60,16 +60,16 @@ const PagesPanel = () => {
                         </div>
                     </div>
                 )) : <>
-                    <PageSkeleton/>
-                    <PageSkeleton/>
-                    <PageSkeleton/>
-                    <PageSkeleton/>
-                    <PageSkeleton/>
-                    <PageSkeleton/>
-                    <PageSkeleton/>
-                    <PageSkeleton/>
-                    <PageSkeleton/>
-                    <PageSkeleton/>
+                    <PageSkeleton />
+                    <PageSkeleton />
+                    <PageSkeleton />
+                    <PageSkeleton />
+                    <PageSkeleton />
+                    <PageSkeleton />
+                    <PageSkeleton />
+                    <PageSkeleton />
+                    <PageSkeleton />
+                    <PageSkeleton />
                 </>
                 }
             </div>
