@@ -33,9 +33,9 @@ const useGoogleLogin = () => {
                 }
             }
             const data = await loginUserGoogle(userData)
-            dispatch(SET_USER(data.user))
+            dispatch(SET_USER(data?.user))
             dispatch(SET_LOGIN(true))
-            window.localStorage.setItem('token', data.token)
+            window.localStorage.setItem('token', data?.token)
             toast.success("Logged In")
         } catch (error) {
             console.log(error);

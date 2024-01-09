@@ -14,7 +14,6 @@ const AddPage = () => {
     const [isLoading, setIsLoading] = useState(false)
 
     const onSubmit = async (data) => {
-        console.log(data);
         try {
             let socialMediaLinks = [
                 { name: "twitter", link: data?.twitter },
@@ -48,9 +47,6 @@ const AddPage = () => {
             // Append the image file if it exists
             if (data?.image && data?.image?.length > 0) {
                 formData.append('image', data?.image[0]);
-            }
-            for (let [key, value] of formData.entries()) {
-                console.log(key, value);
             }
             setIsLoading(true)
             const response = await axios.post("/entity/add", formData, {
